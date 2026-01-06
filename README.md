@@ -1,247 +1,230 @@
-# AIBILL RADIUS - Billing System for RTRW.NET
+AIBILL RADIUS - Billing System for RTRW.NET
 
-Modern, full-stack billing system for RTRW.NET ISP with proper WIB (Western Indonesia Time) timezone handling.
+Modern, full-stack billing system for RTRW.NET ISP with proper Nairobi (EAT, UTC+3) timezone handling and integrated M-Pesa, WhatsApp, and SMS notifications.
 
-## 🎯 Key Features
+🎯 Key Features
 
-- ✅ **Proper WIB Timezone Handling** - All dates stored in UTC, displayed in WIB
-- 🎨 **Premium UI** - Mobile-first responsive design with dark mode
-- ⚡ **Modern Stack** - Next.js 15, TypeScript, Tailwind CSS, Prisma
-- 🔐 **Secure** - Built-in authentication structure
-- 📱 **SPA Experience** - Fast, smooth navigation without page reloads
+✅ Proper Nairobi Timezone Handling - All dates stored in UTC, displayed in EAT
 
-## 🚀 Tech Stack
+🎨 Premium UI - Mobile-first responsive design with dark mode
 
-- **Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Database**: MySQL with Prisma ORM
-- **Icons**: Lucide React
-- **Date Handling**: date-fns with timezone support
+⚡ Modern Stack - Next.js 15, TypeScript, Tailwind CSS, Prisma
 
-## 📋 Features Overview
+🔐 Secure - Built-in authentication structure
 
-### Admin Panel Modules
+📱 SPA Experience - Fast, smooth navigation without page reloads
 
-1. **Dashboard** - Overview with stats and real-time data
-2. **PPPoE Management** - Users and profiles
-3. **Hotspot Management** - Vouchers, profiles, and templates
-4. **Agent Management** - Reseller accounts
-5. **Invoices** - Billing and payment tracking
-6. **Payment Gateway** - Multiple payment methods
-7. **Keuangan** - Financial reporting
-8. **Sessions** - Active connections monitoring
-9. **WhatsApp Integration** - Automated notifications
-10. **Network Management** - Router/NAS configuration
-11. **Network Map** - Visual network topology
-12. **Settings** - Company profile, cron jobs, GenieACS
+💳 M-Pesa Integration - STK Push and payment callbacks
 
-## 🕐 Timezone Handling (The Critical Fix)
+📩 Notifications - WhatsApp and SMS alerts for invoices and events
 
-This project solves the **UTC vs WIB timezone issue** that causes billing problems:
+🚀 Tech Stack
 
-### How It Works:
+Framework: Next.js 15 (App Router)
 
-1. **Database Storage (UTC)**
-   - All dates stored in MySQL as UTC
-   - Prisma handles UTC storage automatically
+Language: TypeScript
 
-2. **Display (WIB)**
-   - Frontend converts UTC to WIB using `date-fns-tz`
-   - Functions in `src/lib/timezone.ts`:
-     - `toWIB()` - Convert UTC to WIB for display
-     - `toUTC()` - Convert WIB to UTC for storage
-     - `formatWIB()` - Format dates in WIB
-     - `isExpired()` - Check expiry in WIB context
+Styling: Tailwind CSS
 
-3. **Environment Configuration**
-   ```bash
-   TZ="Asia/Jakarta"
-   NEXT_PUBLIC_TIMEZONE="Asia/Jakarta"
-   ```
+Database: MySQL with Prisma ORM
 
-### Example Usage:
+Icons: Lucide React
 
-```typescript
-import { formatWIB, isExpired, toUTC } from '@/lib/timezone';
+Date Handling: date-fns with timezone support
 
-// Display date in WIB
-const displayDate = formatWIB(user.createdAt, 'dd/MM/yyyy HH:mm');
+Messaging: WhatsApp & SMS APIs
 
-// Check if expired (in WIB)
+Payments: M-Pesa API
+
+📋 Features Overview
+Admin Panel Modules
+
+Dashboard - Overview with stats and real-time data
+
+PPPoE Management - Users and profiles
+
+Hotspot Management - Vouchers, profiles, and templates
+
+Agent Management - Reseller accounts
+
+Invoices - Billing and payment tracking
+
+Payment Gateway - M-Pesa, Midtrans, Xendit
+
+Keuangan - Financial reporting
+
+Sessions - Active connections monitoring
+
+WhatsApp & SMS Integration - Automated notifications for invoices, alerts, and payments
+
+Network Management - Router/NAS configuration
+
+Network Map - Visual network topology
+
+Settings - Company profile, cron jobs, GenieACS
+
+🕐 Timezone Handling (Nairobi/EAT)
+
+This project solves the UTC vs Nairobi timezone issue that can affect billing accuracy.
+
+How It Works:
+
+Database Storage (UTC)
+
+All dates stored in MySQL as UTC
+
+Prisma handles UTC storage automatically
+
+Display (EAT)
+
+Frontend converts UTC to Nairobi/EAT using date-fns-tz
+
+Functions in src/lib/timezone.ts:
+
+toEAT() - Convert UTC to EAT for display
+
+toUTC() - Convert EAT to UTC for storage
+
+formatEAT() - Format dates in EAT
+
+isExpired() - Check expiry in EAT context
+
+Environment Configuration
+
+TZ="Africa/Nairobi"
+NEXT_PUBLIC_TIMEZONE="Africa/Nairobi"
+
+Example Usage:
+import { formatEAT, isExpired, toUTC } from '@/lib/timezone';
+
+// Display date in Nairobi time
+const displayDate = formatEAT(user.createdAt, 'dd/MM/yyyy HH:mm');
+
+// Check if expired
 const expired = isExpired(user.expiredAt);
 
 // Convert user input to UTC before saving
 const utcDate = toUTC(userInputDate);
 await prisma.user.create({ data: { expiredAt: utcDate } });
-```
 
-## 🛠️ Setup Instructions
+💳 Payment & Notifications
 
-### 1. Database Setup
+M-Pesa Integration:
 
-Create MySQL database:
-```bash
+STK Push payments
+
+Webhook callbacks to update invoices automatically
+
+Notifications:
+
+WhatsApp notifications via templates
+
+SMS alerts via configured SMS gateway
+
+🛠️ Setup Instructions
+1. Database Setup
 mysql -u root -p
 CREATE DATABASE aibill_radius;
 exit;
-```
 
-### 2. Environment Configuration
+2. Environment Configuration
 
-Update `.env` with your database credentials:
-```env
+Update .env with your credentials:
+
 DATABASE_URL="mysql://root:YOUR_PASSWORD@localhost:3306/aibill_radius?connection_limit=10&pool_timeout=20"
-TZ="Asia/Jakarta"
-NEXT_PUBLIC_TIMEZONE="Asia/Jakarta"
-```
+TZ="Africa/Nairobi"
+NEXT_PUBLIC_TIMEZONE="Africa/Nairobi"
 
-### 3. Install Dependencies & Setup Database
+# M-Pesa API
+MPESA_CONSUMER_KEY="your_key"
+MPESA_CONSUMER_SECRET="your_secret"
+MPESA_SHORTCODE="123456"
 
-```bash
+# WhatsApp/SMS API
+WHATSAPP_API_KEY="your_whatsapp_key"
+SMS_API_KEY="your_sms_key"
+
+3. Install Dependencies & Setup Database
 npm install
 npx prisma generate
 npx prisma db push
-```
 
-### 4. FreeRADIUS Integration Setup
-
-**Important**: This app integrates with FreeRADIUS and automatically restarts it when router/NAS configuration changes.
-
-#### Setup sudoers permission:
-
-```bash
-# Run automated setup script
+4. FreeRADIUS Integration Setup
 bash scripts/setup-sudoers.sh
-
-# Or manually:
-sudo visudo -f /etc/sudoers.d/freeradius-restart
-```
-
-Add this line (replace `gnetid` with your PM2 user):
-```
-gnetid ALL=(ALL) NOPASSWD: /usr/bin/systemctl restart freeradius
-gnetid ALL=(ALL) NOPASSWD: /usr/bin/systemctl status freeradius
-```
-
-Save and test:
-```bash
 sudo systemctl restart freeradius
-```
 
-If no password is asked, setup is successful! ✅
-
-See [SUDOERS_SETUP.md](SUDOERS_SETUP.md) for detailed instructions.
-
-### 5. Run Development Server
-
-```bash
+5. Run Development Server
 npm run dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) - automatically redirects to `/admin`
 
-### 6. Production Deployment with PM2
+Open http://localhost:3000
+ → redirects to /admin.
 
-```bash
-# Build the app
+6. Production Deployment with PM2
 npm run build
-
-# Start with PM2
 pm2 start npm --name "aibill-radius" -- start
-
-# Or use ecosystem file (recommended)
+# or
 pm2 start ecosystem.config.js
-```
 
-## 📁 Project Structure
-
-```
+📁 Project Structure
 src/
 ├── app/
 │   ├── admin/              # Admin panel routes
-│   │   ├── layout.tsx      # Admin layout with sidebar
-│   │   ├── page.tsx        # Dashboard
-│   │   ├── pppoe/          # PPPoE management
-│   │   ├── hotspot/        # Hotspot management
-│   │   └── ...             # Other modules
-│   └── page.tsx            # Root (redirects to /admin)
+│   └── page.tsx            # Root redirect to /admin
 ├── lib/
-│   ├── timezone.ts         # WIB timezone utilities ⭐
+│   ├── timezone.ts         # Nairobi timezone utilities
 │   └── utils.ts            # General utilities
 └── prisma/
     └── schema.prisma       # Database schema
-```
 
-## 🎨 UI Components
+🔒 Security
 
-- **Sidebar Navigation** - Collapsible, mobile-responsive
-- **Stats Cards** - Real-time metrics display
-- **Data Tables** - Sortable, filterable tables
-- **Forms** - With validation and error handling
-- **Modals** - For CRUD operations
-- **Dark Mode** - Full dark mode support
+Environment variables for sensitive data
 
-## 🔒 Security
+Password hashing with bcryptjs
 
-- Environment variables for sensitive data
-- Password hashing with bcryptjs
-- SQL injection prevention via Prisma
-- XSS protection built into Next.js
+SQL injection prevention via Prisma
 
-## 📊 Database Models
+XSS protection via Next.js
 
-Core models included:
-- Users (Admin, Agent, User roles)
-- PPPoE Users & Profiles
-- Hotspot Vouchers & Profiles
-- Sessions (RADIUS accounting)
-- Invoices & Payments
-- Payment Gateways
-- Routers/NAS
-- WhatsApp Providers & Templates
-- Company Settings
+📊 Database Models
 
-## 🚧 TODO
+Users (Admin, Agent, User)
 
-- [ ] Implement authentication (NextAuth.js)
-- [ ] Add API routes for CRUD operations
-- [ ] Integrate with RADIUS server
-- [ ] Connect payment gateways (Midtrans, Xendit)
-- [ ] WhatsApp API integration
-- [ ] MikroTik API integration
-- [ ] GenieACS integration for TR-069
-- [ ] Add charts and analytics
-- [ ] Export reports (PDF, Excel)
-- [ ] Multi-language support
+PPPoE Users & Profiles
 
-## 🐛 Debugging Timezone Issues
+Hotspot Vouchers & Profiles
 
-If you experience timezone issues:
+Sessions (RADIUS accounting)
 
-1. **Check environment variables**:
-   ```bash
-   echo $TZ
-   # Should output: Asia/Jakarta
-   ```
+Invoices & Payments
 
-2. **Verify in code**:
-   ```typescript
-   import { getTimezoneInfo } from '@/lib/timezone';
-   console.log(getTimezoneInfo()); // Should show WIB info
-   ```
+Payment Gateways
 
-3. **Check database timezone**:
-   ```sql
-   SELECT @@global.time_zone, @@session.time_zone;
-   ```
+Routers/NAS
 
-## 📝 License
+WhatsApp Providers & Templates
+
+Company Settings
+
+🚧 TODO
+
+ Add multi-language support
+
+ Add analytics and charts
+
+ Export reports (PDF, Excel)
+
+ Finalize GenieACS integration
+
+ Enhance RADIUS server automation
+
+📝 License
 
 Private - Proprietary software for AIBILL RADIUS
 
-## 👨‍💻 Development
+👨‍💻 Development
 
-Built with ❤️ for Indonesian ISPs with proper timezone handling.
+Built with ❤️ for Kenyan ISPs with proper Nairobi timezone handling and integrated M-Pesa, WhatsApp, and SMS services.
 
-**Critical Note**: Always use `formatWIB()` and `toWIB()` functions when displaying dates to users. Never display raw UTC dates from database.
+Critical Note: Always use formatEAT() and toEAT() functions when displaying dates. Never display raw UTC dates from the database.
