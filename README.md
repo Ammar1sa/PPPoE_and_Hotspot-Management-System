@@ -4,19 +4,19 @@ Modern, full-stack billing system for RTRW.NET ISP with proper Nairobi (EAT, UTC
 
 🎯 Key Features
 
-✅ Proper Nairobi Timezone Handling - All dates stored in UTC, displayed in EAT
+✅ Proper Nairobi Timezone Handling – All dates stored in UTC, displayed in EAT
 
-🎨 Premium UI - Mobile-first responsive design with dark mode
+🎨 Premium UI – Mobile-first responsive design with dark mode
 
-⚡ Modern Stack - Next.js 15, TypeScript, Tailwind CSS, Prisma
+⚡ Modern Stack – Next.js 15, TypeScript, Tailwind CSS, Prisma
 
-🔐 Secure - Built-in authentication structure
+🔐 Secure – Built-in authentication structure
 
-📱 SPA Experience - Fast, smooth navigation without page reloads
+📱 SPA Experience – Fast, smooth navigation without page reloads
 
-💳 M-Pesa Integration - STK Push and payment callbacks
+💳 M-Pesa Integration – STK Push and payment callbacks
 
-📩 Notifications - WhatsApp and SMS alerts for invoices and events
+📩 Notifications – WhatsApp & SMS alerts for invoices, payments, and events
 
 🚀 Tech Stack
 
@@ -36,65 +36,52 @@ Messaging: WhatsApp & SMS APIs
 
 Payments: M-Pesa API
 
-📋 Features Overview
-Admin Panel Modules
+📋 Admin Panel Modules
 
-Dashboard - Overview with stats and real-time data
+Dashboard – Overview with stats and real-time data
 
-PPPoE Management - Users and profiles
+PPPoE Management – Users and profiles
 
-Hotspot Management - Vouchers, profiles, and templates
+Hotspot Management – Vouchers, profiles, and templates
 
-Agent Management - Reseller accounts
+Agent Management – Reseller accounts
 
-Invoices - Billing and payment tracking
+Invoices – Billing and payment tracking
 
-Payment Gateway - M-Pesa, Midtrans, Xendit
+Payment Gateway – M-Pesa, Midtrans, Xendit
 
-Keuangan - Financial reporting
+Keuangan – Financial reporting
 
-Sessions - Active connections monitoring
+Sessions – Active connections monitoring
 
-WhatsApp & SMS Integration - Automated notifications for invoices, alerts, and payments
+WhatsApp & SMS Integration – Automated notifications
 
-Network Management - Router/NAS configuration
+Network Management – Router/NAS configuration
 
-Network Map - Visual network topology
+Network Map – Visual network topology
 
-Settings - Company profile, cron jobs, GenieACS
+Settings – Company profile, cron jobs, GenieACS
 
 🕐 Timezone Handling (Nairobi/EAT)
 
-This project solves the UTC vs Nairobi timezone issue that can affect billing accuracy.
+Database Storage (UTC) – All dates stored in MySQL as UTC; Prisma handles automatically
 
-How It Works:
+Display (EAT) – Frontend converts UTC to Nairobi/EAT using date-fns-tz
 
-Database Storage (UTC)
+toEAT() – Convert UTC to EAT for display
 
-All dates stored in MySQL as UTC
+toUTC() – Convert EAT to UTC for storage
 
-Prisma handles UTC storage automatically
+formatEAT() – Format dates in EAT
 
-Display (EAT)
+isExpired() – Check expiry in EAT context
 
-Frontend converts UTC to Nairobi/EAT using date-fns-tz
-
-Functions in src/lib/timezone.ts:
-
-toEAT() - Convert UTC to EAT for display
-
-toUTC() - Convert EAT to UTC for storage
-
-formatEAT() - Format dates in EAT
-
-isExpired() - Check expiry in EAT context
-
-Environment Configuration
+Environment Variables:
 
 TZ="Africa/Nairobi"
 NEXT_PUBLIC_TIMEZONE="Africa/Nairobi"
 
-Example Usage:
+Example Usage
 import { formatEAT, isExpired, toUTC } from '@/lib/timezone';
 
 // Display date in Nairobi time
@@ -109,27 +96,22 @@ await prisma.user.create({ data: { expiredAt: utcDate } });
 
 💳 Payment & Notifications
 
-M-Pesa Integration:
+M-Pesa Integration – STK Push payments, webhook callbacks to update invoices automatically
 
-STK Push payments
+WhatsApp Notifications – Template-based notifications for invoices and payments
 
-Webhook callbacks to update invoices automatically
-
-Notifications:
-
-WhatsApp notifications via templates
-
-SMS alerts via configured SMS gateway
+SMS Alerts – Send SMS notifications for important events
 
 🛠️ Setup Instructions
-1. Database Setup
+
+Database Setup
+
 mysql -u root -p
 CREATE DATABASE aibill_radius;
 exit;
 
-2. Environment Configuration
 
-Update .env with your credentials:
+Environment Configuration
 
 DATABASE_URL="mysql://root:YOUR_PASSWORD@localhost:3306/aibill_radius?connection_limit=10&pool_timeout=20"
 TZ="Africa/Nairobi"
@@ -144,23 +126,27 @@ MPESA_SHORTCODE="123456"
 WHATSAPP_API_KEY="your_whatsapp_key"
 SMS_API_KEY="your_sms_key"
 
-3. Install Dependencies & Setup Database
+
+Install Dependencies & Setup Database
+
 npm install
 npx prisma generate
 npx prisma db push
 
-4. FreeRADIUS Integration Setup
+
+FreeRADIUS Integration Setup
+
 bash scripts/setup-sudoers.sh
 sudo systemctl restart freeradius
 
-5. Run Development Server
+
+Run Development Server
+
 npm run dev
 
 
-Open http://localhost:3000
- → redirects to /admin.
+Production Deployment with PM2
 
-6. Production Deployment with PM2
 npm run build
 pm2 start npm --name "aibill-radius" -- start
 # or
@@ -169,13 +155,32 @@ pm2 start ecosystem.config.js
 📁 Project Structure
 src/
 ├── app/
-│   ├── admin/              # Admin panel routes
-│   └── page.tsx            # Root redirect to /admin
+│   ├── admin/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   │   ├── pppoe/
+│   │   ├── hotspot/
+│   │   └── ...
+│   └── page.tsx
 ├── lib/
-│   ├── timezone.ts         # Nairobi timezone utilities
-│   └── utils.ts            # General utilities
+│   ├── timezone.ts
+│   └── utils.ts
 └── prisma/
-    └── schema.prisma       # Database schema
+    └── schema.prisma
+
+🎨 UI Components
+
+Sidebar Navigation – Collapsible, mobile-responsive
+
+Stats Cards – Real-time metrics display
+
+Data Tables – Sortable, filterable tables
+
+Forms – With validation and error handling
+
+Modals – For CRUD operations
+
+Dark Mode – Full dark mode support
 
 🔒 Security
 
@@ -185,11 +190,11 @@ Password hashing with bcryptjs
 
 SQL injection prevention via Prisma
 
-XSS protection via Next.js
+XSS protection built into Next.js
 
 📊 Database Models
 
-Users (Admin, Agent, User)
+Users (Admin, Agent, User roles)
 
 PPPoE Users & Profiles
 
@@ -209,15 +214,33 @@ Company Settings
 
 🚧 TODO
 
- Add multi-language support
+Add multi-language support
 
- Add analytics and charts
+Add analytics and charts
 
- Export reports (PDF, Excel)
+Export reports (PDF, Excel)
 
- Finalize GenieACS integration
+Finalize GenieACS integration
 
- Enhance RADIUS server automation
+Enhance RADIUS server automation
+
+🐛 Debugging Timezone Issues
+
+Check environment variables:
+
+echo $TZ
+# Should output: Africa/Nairobi
+
+
+Verify in code:
+
+import { getTimezoneInfo } from '@/lib/timezone';
+console.log(getTimezoneInfo()); // Should show EAT info
+
+
+Check database timezone:
+
+SELECT @@global.time_zone, @@session.time_zone;
 
 📝 License
 
@@ -225,6 +248,6 @@ Private - Proprietary software for AIBILL RADIUS
 
 👨‍💻 Development
 
-Built with ❤️ for Kenyan ISPs with proper Nairobi timezone handling and integrated M-Pesa, WhatsApp, and SMS services.
+Built with ❤️ for Kenyan ISPs with Nairobi timezone handling and integrated M-Pesa, WhatsApp, and SMS services.
 
 Critical Note: Always use formatEAT() and toEAT() functions when displaying dates. Never display raw UTC dates from the database.
