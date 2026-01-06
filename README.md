@@ -1,5 +1,5 @@
 # AIBILL RADIUS - Billing System for RTRW.NET
-A modern, full-stack ISP billing and network management platform engineered for RTRW.NET, delivering accurate Nairobi (EAT, UTC+3) time synchronization, integrated M-Pesa payment workflows, and automated WhatsApp & SMS notification pipelines.
+A modern, full-stack ISP billing and network management platform engineered for RTRW.NET, delivering accurate Nairobi (EAT, UTC+3) time synchronization, integrated M-Pesa payment workflows, automated WhatsApp & SMS notification pipelines, comprehensive PPPoE and Hotspot management, and multi-tenant billing and subscriber management for efficient ISP operations.
 
 ## 🎯 Key Features
 
