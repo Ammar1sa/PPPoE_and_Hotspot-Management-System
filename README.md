@@ -51,7 +51,9 @@ A modern, full-stack ISP billing and network management platform engineered for 
 ```bash
 TZ="Africa/Nairobi"
 NEXT_PUBLIC_TIMEZONE="Africa/Nairobi"
+
+---
+
+
 Made with ❤️ by Mwaki Denis
 
-markdown
-Copy code
