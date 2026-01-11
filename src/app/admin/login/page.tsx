@@ -149,7 +149,7 @@ function LoginForm() {
 
         {/* Footer */}
         <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
-          By AIBILL RADIUS
+          By MWAKIDENIS-BILLING RADIUS
         </p>
       </div>
     </div>
